@@ -1,0 +1,16 @@
+version: '3.8'
+name: "deepseek-r1-7b"
+services:
+  ollama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deepseek_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
